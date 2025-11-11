@@ -1,0 +1,139 @@
+body {
+	font-family: Arial, sans-serif;
+	background-color: #efebeb;
+	margin: 0;
+	padding: 20px;
+}
+
+.navbar {
+	display: flex;
+	position: sticky;
+	align-items: center;
+	justify-content: space-between;
+	top: 0px;
+	background: rgb(165, 193, 237);
+	background-blend-mode: darken;
+	background-size: cover;
+	color: rgb(0, 0, 0);
+	padding: 10px 20px;
+	border-radius: 3px;
+}
+
+.nav-list {
+	display: flex;
+	list-style: none;
+}
+
+.nav-list li {
+	margin-right: 20px;
+}
+
+.nav-list li:last-child {
+	margin-right: 0;
+}
+
+.nav-list li a {
+	text-decoration: none;
+	color: rgb(0, 0, 0);
+	font-size: 18px;
+	transition: color 0.3s ease-in-out;
+}
+
+.nav-list li a:hover {
+	color: #90ded0;
+}
+
+.rightNav {
+	text-align: right;
+}
+
+#search {
+	padding: 8px;
+	font-size: 16px;
+	border: 2px solid #000000;
+	border-radius: 5px;
+}
+
+.btn {
+	background-color: #7386c5;
+	color: #000;
+	border: none;
+	padding: 8px 12px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+	background-color: #d16dc5;
+	color: #afd2cc;
+}
+h1 {
+	padding: 10px;
+	color: #f0d09c;
+}
+
+h2 {
+	color: #c4df56;
+	margin: 30px 0 15px;
+}
+
+.product-table {
+	border-collapse: separate;
+	border-spacing: 20px;
+}
+
+.product-box {
+	width: 220px;
+	background-color: #ffffff;
+	border: 2px solid #d1cece;
+	border-radius: 10px;
+	padding: 15px;
+	text-align: center;
+	transition: 0.3s;
+}
+
+.product-box:hover {
+	outline: 3px solid #efc931;
+	outline-offset: 5px;
+}
+
+.product-box img {
+	width: 120px;
+	height: 120px;
+	object-fit: cover;
+}
+
+.price {
+	color: #afea3a;
+	font-weight: bold;
+	margin: 10px 0;
+}
+
+.buy-btn {
+	display: inline-block;
+	background-color: #e9c2e7;
+	color: rgb(0, 0, 0);
+	text-decoration: none;
+	padding: 8px 15px;
+	border-radius: 5px;
+	transition: background-color 0.3s;
+}
+
+.buy-btn:hover {
+	background-color: #60ddab;
+}
+
+.footer {
+	display: flex;
+	position: relative;
+	align-items: center;
+	justify-content: center;
+	top: 0px;
+	background: rgb(246, 184, 195);
+	background-blend-mode: darken;
+	background-size: cover;
+	color: rgb(0, 0, 0);
+	padding: 10px 20px;
+	border-radius: 3px;
+}
