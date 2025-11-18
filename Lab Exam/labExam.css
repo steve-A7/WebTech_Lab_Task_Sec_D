@@ -1,0 +1,44 @@
+body {
+	font-family: Century Gothic, sans-serif;
+	margin: 20px;
+	background: #f5f5f5;
+}
+.registration-section {
+	background-color: #f9f9f9;
+	padding: 20px;
+	border-radius: 8px;
+	width: 700px;
+	margin: 0 auto;
+	box-shadow: 0 0px 15px rgba(0, 0, 0, 0.1);
+}
+h2 {
+	text-align: center;
+	color: #333;
+}
+.form-control {
+	margin-bottom: 15px;
+}
+input,
+textarea {
+	padding: 8px;
+	border-radius: 5px;
+	border: 1px solid #aaa;
+	margin-top: 5px;
+}
+
+textarea {
+	height: 100px;
+	resize: vertical;
+}
+.error {
+	color: red;
+	font-size: 15px;
+}
+.btn-style {
+	margin-top: 15px;
+	border-radius: 8px;
+	border: 1px solid #f5f5f5;
+	background-color: #aaa;
+	width: 130px;
+	height: 40px;
+}

@@ -1,0 +1,143 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="labExam.css" />
+	</head>
+	<body>
+		<div class="registration-section">
+			<h2>Registration Form</h2>
+
+			<form id="registrationForm">
+				<div class="form-control">
+					<span style="color: red">* (Required) </span><label>Username:</label>
+					<input type="text" id="username" />
+					<div class="error" id="usernameError"></div>
+				</div>
+				<div class="form-control">
+					<span style="color: red">* (Required) </span
+					><label>Professional Email:</label>
+					<input type="text" id="email" />
+					<div class="error" id="emailError"></div>
+				</div>
+				<div class="form-control">
+					<span style="color: rgb(0, 255, 255)">(Optional) </span
+					><label>Company/Institution Name:</label>
+					<input type="text" id="company" />
+					<div class="error" id="companyError"></div>
+				</div>
+				<div class="form-control">
+					<span style="color: red">* (Required) </span
+					><label>Attendance Type: </label>
+					<input type="radio" name="attendance" value="virtual" /> Virtual
+					<input type="radio" name="attendance" value="in-person" /> In-Person
+					<div class="error" id="attendanceError"></div>
+				</div>
+				<button class="btn-style" type="submit">Submit Review</button>
+				<br />
+				<button class="btn-style" type="button">Show Event Analytics</button>
+				<div id="numOfReg"></div>
+				<div id="numOfVirtual"></div>
+				<div id="numOfInPerson"></div>
+			</form>
+		</div>
+
+		<script>
+			let submissionType = [];
+			let totalSubmission = 0;
+			let show = false;
+
+			function validateForm() {
+				let valid = true;
+
+				let name = document.getElementById("username").value.trim();
+				let email = document.getElementById("email").value.trim();
+				let company = document.getElementById("company").value.trim();
+				let attendance = document.querySelector(
+					'input[name="attendance"]:checked'
+				);
+
+				if (name.length < 2 || name.length > 30) {
+					valid = false;
+					document.getElementById("usernameError").innerText =
+						"Name must be between 2 and 30 characters";
+				} else {
+					document.getElementById("usernameError").innerText = "";
+				}
+
+				if (!email.match(/^[^@]+@[^@]+\.[^@]+$/)) {
+					valid = false;
+					document.getElementById("emailError").innerText =
+						"Please enter a valid professional email address";
+				} else {
+					document.getElementById("emailError").innerText = "";
+				}
+
+				if (company.length > 100) {
+					valid = false;
+					document.getElementById("companyError").innerText =
+						"Maximum 100 Characters";
+				} else {
+					document.getElementById("companyError").innerText = "";
+				}
+
+				if (!attendance) {
+					valid = false;
+					document.getElementById("attendanceError").innerText =
+						"Please select an attendance type";
+				} else {
+					document.getElementById("attendanceError").innerText = "";
+				}
+
+				return valid;
+			}
+
+			document
+				.getElementById("registrationForm")
+				.addEventListener("submit", function (event) {
+					event.preventDefault();
+
+					if (!validateForm()) return;
+
+					let attendanceValue = document.querySelector(
+						'input[name="attendance"]:checked'
+					).value;
+
+					submissionType.push(attendanceValue);
+					totalSubmission++;
+
+					document.getElementById("registrationForm").reset();
+				});
+
+			let analyticsButton = document.querySelector('.btn-style[type="button"]');
+
+			analyticsButton.addEventListener("click", function () {
+				if (show === false) {
+					document.getElementById("numOfReg").innerText =
+						"Number of Total Registration = " + totalSubmission;
+
+					let numOfVirtual = submissionType.filter(
+						(t) => t === "virtual"
+					).length;
+					let numOfInPerson = submissionType.filter(
+						(t) => t === "in-person"
+					).length;
+
+					document.getElementById("numOfVirtual").innerText =
+						"Number of Virtual = " + numOfVirtual;
+
+					document.getElementById("numOfInPerson").innerText =
+						"Number of In-Person = " + numOfInPerson;
+
+					analyticsButton.textContent = "Hide Event Analytics";
+					show = true;
+				} else {
+					document.getElementById("numOfReg").innerText = "";
+					document.getElementById("numOfVirtual").innerText = "";
+					document.getElementById("numOfInPerson").innerText = "";
+
+					analyticsButton.textContent = "Show Event Analytics";
+					show = false;
+				}
+			});
+		</script>
+	</body>
+</html>
